@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const nodemailer = require('nodemailer');
 const Logs = require('./src/model/LogSchema');
 const UserLocation = require('./src/model/UserLocationSchema');
-const PORT = 4000;
+const PORT = process.env.PORT || 5000;
 
 const mail = nodemailer.createTransport({
     service: 'gmail',
