@@ -6,6 +6,13 @@ const nodemailer = require('nodemailer');
 const Logs = require('./src/model/LogSchema');
 const UserLocation = require('./src/model/UserLocationSchema');
 const PORT = process.env.PORT || 5000;
+// Accessing the path module
+const path = require("path");
+
+app.use(express.static(path.resolve(__dirname, "./frontend/client/build")));
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./frontend/client/build", "index.html"));
+});
 
 const mail = nodemailer.createTransport({
     service: 'gmail',
