@@ -26,7 +26,7 @@ class Profile extends Component {
                 longitude: lng
             };
 
-            fetch('http://localhost:4000/location', {
+            fetch('http://localhost:5000/location', {
                 method: 'POST',
                 mode: 'cors',
                 headers: {
@@ -83,7 +83,7 @@ class Profile extends Component {
         };
 
 
-        fetch('http://localhost:4000', {
+        fetch('http://localhost:5000', {
             method: 'POST',
             mode: 'cors',
             headers: {
