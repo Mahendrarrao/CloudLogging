@@ -6,12 +6,14 @@ const nodemailer = require('nodemailer');
 const Logs = require('./src/model/LogSchema');
 const UserLocation = require('./src/model/UserLocationSchema');
 const PORT = process.env.PORT || 5000;
+require("dotenv").config();
 
-// ... other imports 
-const path = require("path")
+const path = require("path");
 
-// ... other app.use middleware 
-app.use(express.static(path.join(__dirname, "client", "build")))
+app.use(express.static(path.resolve(__dirname, "./frontend/client/build")));
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./frontend/client/build", "index.html"));
+});
 
 const mail = nodemailer.createTransport({
     service: 'gmail',
