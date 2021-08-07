@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint ./",
     "test": "jest -i --verbose --coverage --runInBand",
-    "start": "node index.js && cd frontend/client && react-scripts start",
+    "start": "node index.js && cd frontend/client && react-scripts start && cd ..",
     "dboff": "killall mongod",
     "watch": "nodemon index.js",
     "build": "cd frontend/client && npm run build",
