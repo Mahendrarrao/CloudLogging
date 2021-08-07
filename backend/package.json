@@ -6,9 +6,15 @@
   "scripts": {
     "lint": "eslint ./",
     "test": "jest -i --verbose --coverage --runInBand",
-    "start": "node index.js",
+    "startb": "node index.js",
     "dboff": "killall mongod",
     "watch": "nodemon index.js",
+    "build": "cd client && npm run build",
+    "install-client": "cd client && npm install",
+    "heroku-postbuild": "npm run install-client && npm run build",
+    "server": "nodemon server.js",
+    "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
+    "start": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
     "dbon": "mkdir -p ./db && mongod --dbpath ./db"
   },
   "keywords": [],
@@ -23,5 +29,6 @@
     "mongoose": "^5.12.12",
     "nodemailer": "^6.6.3",
     "superagent": "^6.1.0"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
