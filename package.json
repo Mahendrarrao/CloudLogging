@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "cloudloggingbe",
   "version": "1.0.0",
-  "description": "",
+  "description": "CloudLoggingBE",
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./",
