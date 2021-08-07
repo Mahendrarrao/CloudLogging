@@ -10,7 +10,7 @@ require("dotenv").config();
 
 const path = require("path");
 
-app.use(express.static(path.join(__dirname, "client", "build")))
+app.use(express.static(path.join(__dirname, "frontend/client", "build")))
 
 const mail = nodemailer.createTransport({
     service: 'gmail',
