@@ -11,12 +11,15 @@
     "watch": "nodemon index.js",
     "build": "cd frontend/client && npm run build",
     "install-client": "cd frontend/client && npm install",
-    "heroku-postbuild": "npm run install-client && npm run build",
+    "heroku-postbuild": "npm run install-client && npm install --only=dev && npm install && npm run build",
     "server": "nodemon server.js",
     "develop": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
     "startb": "concurrently --kill-others-on-fail \"npm run server\" \"npm run start --prefix client\"",
     "dbon": "mkdir -p ./db && mongod --dbpath ./db"
   },
+  "engines": {
+    "node": "12.13.0"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
