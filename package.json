@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint ./",
     "test": "jest -i --verbose --coverage --runInBand",
-    "start": "node index.js",
+    "start": "node index.js && cd frontend/client && react-scripts start",
     "dboff": "killall mongod",
     "watch": "nodemon index.js",
     "build": "cd frontend/client && npm run build",
@@ -19,7 +19,7 @@
   },
   "engines": {
     "node": "12.13.0"
-},
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
