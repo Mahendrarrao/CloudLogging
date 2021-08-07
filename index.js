@@ -5,7 +5,13 @@ const mongoose = require("mongoose");
 const nodemailer = require('nodemailer');
 const Logs = require('./src/model/LogSchema');
 const UserLocation = require('./src/model/UserLocationSchema');
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
+
+// ... other imports 
+const path = require("path")
+
+// ... other app.use middleware 
+app.use(express.static(path.join(__dirname, "client", "build")))
 
 const mail = nodemailer.createTransport({
     service: 'gmail',
@@ -138,6 +144,10 @@ app.post('/location', async (req, res) => {
             });
         }
     }
+});
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
 });
 
 app.listen(PORT, function() {
