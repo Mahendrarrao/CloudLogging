@@ -26,7 +26,7 @@ class Profile extends Component {
                 longitude: lng
             };
 
-            fetch('http://localhost:5000/location', {
+            fetch('https://cloudlogging.herokuapp.com/location', {
                 method: 'POST',
                 mode: 'cors',
                 headers: {
@@ -83,7 +83,7 @@ class Profile extends Component {
         };
 
 
-        fetch('http://localhost:5000', {
+        fetch('https://cloudlogging.herokuapp.com/', {
             method: 'POST',
             mode: 'cors',
             headers: {

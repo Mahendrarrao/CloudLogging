@@ -20,7 +20,7 @@ class Logs extends Component {
     }
 
     componentDidMount() {
-        fetch('http://localhost:5000/logs')
+        fetch('https://cloudlogging.herokuapp.com/logs')
             .then(function(response) {
                 return response.json();
             })
